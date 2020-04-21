@@ -1,0 +1,345 @@
+<HTML><HEAD>
+		<TITLE>Design And Analysis Of Algorithms</TITLE>
+	</HEAD>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  height: 250px;
+}
+
+nav {
+  float: left;
+  width: 40%;
+  height: 4240px; 
+  background: #ccc;
+  font-size: 40px;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 60%;
+  background-color: #f1f1f1;
+  height: 4240px; 
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+  background-color: black;
+  padding: 30px;
+  text-align: center;
+  color: White;
+}
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.previous {
+  background-color: white;
+  color: black;
+}
+
+.next {
+  background-color: white;
+  color: black;
+}
+
+.round {
+  border-radius: 50%;
+}
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: #604fbf;
+}
+
+/* mouse over link */
+a:hover {
+  color: #66cc00;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #0047b3;
+}
+.pagination a {
+  margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+}
+.pagination a {
+  border: 1px solid #80aaff; 
+}
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+</head>
+		<BODY bgcolor="#e6f0ff">
+		<header>
+ 	 <u><h1>Unit-2 -- Divide and Conquer</h1></u>
+	</header>
+
+	<section>
+ 	 <nav>
+  	  <ul">List of topics in U2-
+      <li><a href="#s1">Introduction to divide & conquer</a>
+      <li><a href="#s2">Binary search</a>
+	  <li><a href="#s3">Merge sort</a>
+      <li><a href="#s4">Quick sort</a>
+	  <li><a href="#s5">Strassen's marix</a>
+	  <li><a href="#s6">Closest Pair</a>
+	  <li><a href="#s7">Convex hull</a>
+	  </ul>
+ 	 </nav>
+	 <article><center>
+	 <div class="pagination">
+  <a href="F1.html">&laquo;</a>
+  <a href="HOME PAGE.html">Home</a>
+  <a href="F1.html">U1</a>
+  <a href="F2.html" class="active">U2</a>
+  <a href="F3.html">U3</a>
+  <a href="F4.html">U4</a>
+  <a href="F5.html">U5</a>
+  <a href="F3.html">&raquo;</a>
+</div></center>
+ 	<p id="s1"><h3>Divide and Conquer</h3></p>
+	<p><ul>Divide and Conquer is an algorithmic paradigm. A typical Divide and Conquer algorithm solves a problem using following three steps.
+			<li>	Divide: Break the given problem into subproblems of same type:
+			<li>	Conquer: Recursively solve these subproblems
+			<li>	Combine: Appropriately combine the answers</ol><br>
+					A classic example of Divide and Conquer is Merge Sort demonstrated below. 
+					In Merge Sort, we divide array into two halves, sort the two halves recursively,
+					and then merge the sorted halves:</p>
+	<center>	<img src="divide.png" style="width:600px;height:400px;"></center>
+	<p id="s2"><h3>Binary Search </h3></p>
+	<p>Search a sorted array by repeatedly dividing the search interval in half. Begin with an interval covering the whole 
+	array. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the 
+	lower half. Otherwise narrow it to the upper half. Repeatedly check until the value is found or the interval is empty.<br>
+	Binary search algorithm-<br>
+		Binarysearch(a[n], key)<br>
+			start=0;  end=n-1;<br>
+		While(start<=end)<br>
+			{	<br>
+				mid=(start+end)/2;<br>
+            		  return mid<br>
+				if(a[mid]==key)<br>
+					return mid;<br>
+				else if(a[mid]&ltkey)<br>
+					end=mid-1;<br>
+	    	   else<br>
+					start=mid+1;<br>
+			}<br>
+			return -1;<br>
+</p>
+		<p id="s3"><h3>Merge Sort</h3></a>
+			<p>Merge sort is based on Divide and conquer method. 
+					It takes the list to be sorted and divide it in half to create two unsorted lists. 
+					The two unsorted lists are then sorted and merged to get a sorted list. 
+					The two unsorted lists are sorted by continually calling the merge-sort algorithm;  
+					we eventually get a list of size 1 which is already sorted. The two lists of size 1 are then merged.
+			<ol>Steps using Divide and Conquer strategy:
+			<li>if it is only one element in the list it is already sorted, return. 
+			<li>divide the list recursively into two halves until it can no more be divided. 
+			<li>merge the smaller lists into new list in sorted order.</ol>
+				Merge sort algorithm-<br>
+				If r > l <br>
+					1.   Find the middle point to divide the array into two halves: <br>
+						middle m = (l+r)/2 <br>
+					2.   Call mergeSort for first half: <br>
+						Call mergeSort(arr, l, m) <br>
+					3.   Call mergeSort for second half: <br>
+						Call mergeSort(arr, m+1, r) <br>
+					4.   Merge the two halves sorted in step 2 and 3: <br>
+						Call merge(arr, l, m, r)<br>
+
+</p>
+<p id="s4"><h3>Quick Sort</h3></p>
+<p>Like Merge Sort, QuickSort is a Divide and Conquer algorithm. <br>
+It picks an element as pivot and partitions the given array around the picked pivot. <br>
+There are many different versions of quickSort that pick pivot in different ways.<br>
+<ol>
+<li>Always pick first element as pivot.
+<li>Always pick last element as pivot (implemented below)
+<li>Pick a random element as pivot.
+<li>Pick median as pivot.</ol><br>
+The key process in quickSort is partition(). 
+Target of partitions is, given an array and an element x of array as pivot, put x at its 
+correct position in sorted array and put all smaller elements (smaller than x) before x, 
+and put all greater elements (greater than x) after x. All this should be done in linear time.</p>
+<p>Pseudocode for recursive quicksort function:<br>
+/* low  --> Starting index,  high  --> Ending index */<br>
+quickSort(arr[], low, high)<br>
+{<br>
+    if (low &lt high)<br>
+    {<br>
+        /* pi is partitioning index, arr[pi] is now<br>
+           at right place */<br>
+        pi = partition(arr, low, high);<br>
+
+        quickSort(arr, low, pi - 1);  // Before pi<br>
+        quickSort(arr, pi + 1, high); // After pi<br>
+    }<br>
+}<br></p>
+<p id="s5"><h3>Strassen's Matrix</h3></p>
+<p>Following is simple Divide and Conquer method to multiply two square matrices.<br>
+1) Divide matrices A and B in 4 sub-matrices of size N/2 x N/2 as shown in the below diagram.<br>
+2) Calculate following values recursively. ae+bg, af+bh, ce+dg and cf+dh.<br>
+In the above method, we do 8 multiplications for matrices of size N/2 x N/2 and 4 additions.
+Addition of two matrices takes O(N2) time.<br> So the time complexity can be written as T(N) = 8T(N/2) + O(N2)<br>
+From Master's Theorem, time complexity of above method is O(N3) which is unfortunately same as the above naive method.</p>
+<p>In the above divide and conquer method, the main component for high time complexity is 8 recursive calls.
+The idea of Strassen’s method is to reduce the number of recursive calls to 7. 
+Strassen’s method is similar to above simple divide and conquer method in the sense that this 
+method also divides matrices to submatrices of size N/2 x N/2 as shown in the above diagram, but 
+in Strassen’s method, the four sub-matrices of result are calculated using following formulae.
+</p>
+<center><img src="strassen.png" style="width:600px;height:400px;"></center>
+<p id="s6"><h3>Closest Pair</h3></p>
+<p>We are given an array of n points in the plane, and the problem is to find out the closest pair of points in the array. <br>
+For example, in air-traffic control, you may want to monitor planes that come too close together, since this may indicate a possible collision. <br>
+Recall the following formula for distance between two points p and q.<br>
+<center><img src="closest.png" style="width:450px;height:75px;"></center><br>
+The Brute force solution is O(n2), compute the distance between each pair and return the smallest. <br>
+We can calculate the smallest distance in O(nLogn) time using Divide and Conquer strategy.<br>
+<h5>Algorithm</h5>
+Input: An array of n points P[]<br>
+Output: The smallest distance between two points in the given array.<br>
+As a pre-processing step, input array is sorted with x coordinates.<br>
+1) Find the middle point in the sorted array, we can take P[n/2] as middle point.<br>
+2) Divide the given array in two halves. The first subarray contains points from P[0] to P[n/2]. The second subarray contains points from P[n/2+1] to P[n-1].<br>
+3) Recursively find the smallest distances in both subarrays. Let the distances be dl and dr. Find the minimum of dl and dr. Let the minimum be d.<br>
+4) From above 3 steps, we have an upper bound d of minimum distance. Now we need to consider the pairs such that one point in pair is from left half and 
+other is from right half. Consider the vertical line passing through passing through P[n/2] and find all points whose x coordinate is closer than
+d to the middle vertical line. Build an array strip[] of all such points.<br>
+5) Sort the array strip[] according to y coordinates. This step is O(nLogn). It can be optimized to O(n) by recursively sorting and merging.<br>
+6) Find the smallest distance in strip[]. This is tricky. From first look, it seems to be a O(n2) step, but it is actually O(n). 
+It can be proved geometrically that for every point in strip, we only need to check at most 7 points after it (note that strip is sorted according to Y coordinate).<br>
+7) Finally return the minimum of d and distance calculated in above step 6.<br>
+</p>
+<p id="s7"><h3>Convex Hull</h3></p>
+<p>A polygon is convex if any line segment joining two points on the boundary stays within the polygon.<br>
+The convex hull of a set of points in the plane is the smallest convex polygon for which each point is either on the boundary or in the interior of the polygon. <br>
+A vertex is a corner of a polygon. For example, the highest, lowest, leftmost and rightmost points are all vertices of the convex hull.<br>
+Below are the different algorithms that can be used to solve convex hull:<br>
+-&gt Graham Scan<br>
+-&gt Jarvis March<br>
+-&gt Divide & Conquer<br>
+<h5>Algorithm</h5>
+Let x0 be the leftmost point. <br>
+Let x1 be the first point counter clockwise when viewed fromx0. <br>
+Then x2 is the first point counter clockwise when viewed from x1, and so on.<br>
+i = 0<br>
+while not done do<br>
+xi+1 = first point counter clockwise from xi<br><br>
+<center><img src="conv.png" style="height:400px;width:700px;"></center>
+</p>
+<p ><h2>Some important links:</h2>
+Divide and Conquer Technique-<a href="https://youtu.be/6BWvV4xVh8U">https://youtu.be/6BWvV4xVh8U</a><br>
+Binary search- <a href="https://youtu.be/P3YID7liBug">https://youtu.be/P3YID7liBug</a><br>
+Merge sort- <a href="https://youtu.be/TzeBrDU-JaY">https://youtu.be/TzeBrDU-JaY</a><br>
+Strassen's matrix- <a href="https://youtu.be/0oJyNmEbS4w">https://youtu.be/0oJyNmEbS4w</a><br>
+Convex hull- <a href="https://youtu.be/ZFxFKABnXN0">https://youtu.be/ZFxFKABnXN0</a>
+</p>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+							<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+  </article>
+</section>
+
+<footer>
+<p><a href="HOME PAGE.html">HOME PAGE</a></p>
+  <b><u><center> <p>That was all about UNIT-2: Divide and Conquer.</p></center></u></b>
+  <a href="F1.html" class="previous">&laquo; Previous</a>
+<a href="F3.html" class="next">Next &raquo;</a>
+</footer>
+
+</body>
+</html>

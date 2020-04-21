@@ -1,0 +1,320 @@
+<HTML><HEAD>
+		<TITLE>Design And Analysis Of Algorithms</TITLE>
+	</HEAD>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  height: 250px;
+}
+
+nav {
+  float: left;
+  width: 40%;
+  height: 4050px; 
+  background: #ccc;
+  font-size: 40px;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 60%;
+  background-color: #f1f1f1;
+  height: 4050px; 
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+  background-color: black;
+  padding: 30px;
+  text-align: center;
+  color: White;
+}
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.previous {
+  background-color: white;
+  color: black;
+}
+
+.next {
+  background-color: white;
+  color: black;
+}
+
+.round {
+  border-radius: 50%;
+}
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: #604fbf;
+}
+
+/* mouse over link */
+a:hover {
+  color: #66cc00;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #0047b3;
+}
+.pagination a {
+  border: 1px solid #80aaff; 
+}
+.pagination a {
+  margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+}
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+</head>
+		<BODY bgcolor="#e6f0ff">
+		<header>
+ 	 <u><h1>Unit-1 -- Introduction to Algorithm Design</h1></u>
+	</header>
+
+	<section>
+ 	 <nav>
+  	  <ul">List of topics in U1-
+      <li><a href="#s5">Fundamentals of algorithm</a></li>
+      <li><a href="#s1">Algorithm design techniques</a></li>
+	  <li><a href="#s6">Designing an algorithm</a></li>
+      <li><a href="#s3">Complexity of algorithm</a></li>
+	  <li><a href="#s4">Mathematical analysis</a></li>
+	  <li><a href="#s2">Recursion tree</a></li>
+	  </ul>
+ 	 </nav>
+  
+  <article><center>
+  <div class="pagination">
+  <a href="HOME PAGE.html">&laquo;</a>
+  <a href="HOME PAGE.html">Home</a>
+  <a href="F1.html" class="active">U1</a>
+  <a href="F2.html">U2</a>
+  <a href="F3.html">U3</a>
+  <a href="F4.html">U4</a>
+  <a href="F5.html">U5</a>
+  <a href="F2.html">&raquo;</a>
+</div></center>
+    <p id="s5"><h3>Algorithms</h3></p>
+    <p>A finite set of instructions or logic, written in order, to accomplish a certain predefined task. 
+	Algorithm is not the complete code or program.
+	It is just the core logic (solution) of a problem.
+	Can be expressed either as an informal high level description as pseudo code or using a flowchart.
+	</p>
+	<p id="s6"><h3>Characteristics of Algorithms</h3></p>
+	<p><ul><li>Input: An algorithm should have 0 or more well defined inputs.
+			<li>Output:	An algorithm should have 1 or more well defined outputs.
+			<li>Unambiguous: Algorithm should be clear and unambiguous.
+			<li>Finiteness:	Algorithms must terminate after a finite no. of steps.
+			<li>Feasibility: Should be feasible with the available resources.
+			<li>Independent: An algorithm should have step-by-step directions which should be independent of any programming code.
+	</ul></p>
+	<h3>Pseudocode</h3>
+	<p><ul>
+	<li>It is one of the methods that could be used to represent an algorithm. 
+	<li>It is not written in a specific syntax 
+	<li>Cannot be executed 
+	<li>Can be read and understood by programmers who are familiar with different programming languages. 
+	<li>Transformation from pseudo code to the corresponding program code easier. 
+	<li>Pseudo code allows to include control structures such as WHILE, IF-THEN-ELSE, REPEAT-UNTIL, FOR, and CASE, which are available in many high level languages.
+	</ul></p>
+	<img src="algopseudo.PNG" style="width:1100px;height:900px;">
+	<br><br>
+	<p id="s1"><u>Algorithm Design Techniques -</u></p>
+	<p>1. Brute Force:<br>
+		To solve a problem based on the problem’s statement and definitions of the concepts involved. 
+		Easiest approach to apply 
+		Useful for solving small – size instances of a problem. 
+		<br>
+		2. Divide-and-Conquer & Decrease-and-Conquer:<br>
+		Step 1<br>
+			Split the given instance of the problem into several smaller sub-instances<br>
+		Step 2<br>
+			Independently solve each of the sub-instances<br>
+		Step 3<br>
+			Combine the sub-instance solutions.<br>
+		3. Greedy Algorithms "take what you can get now" strategy:<br>
+			At each step the choice must be locally optimal
+			Works well on optimization problems<br>
+			Characteristics<br>
+				1. Greedy-choice property: A global optimum can be arrived at by selecting a local optimum.
+				2. Optimal substructure: An optimal solution to the problem contains an optimal solution to sub problems.<br>
+		4.Dynamic Programming:<br>
+			Finds solutions to subproblems and stores them in memory for later use. <br>
+		5. Backtracking methods:<br>
+			The method is used for state-space search problems. 
+			What is State-space search problems 
+			-	 State-space search problems are problems, where the problem representation consists of initial state goal state(s)<br>
+		6. Branch-and-bound:<br>
+			Branch and bound is used when we can evaluate each node using the cost and utility functions.
+			At each step we choose the best node to proceed further. 
+			Branch-and bound algorithms are implemented using a priority queue. 
+	</p>
+	<p id="s3"><u>Asymptotic Notations</u></p>
+	<p><ul>Main idea of asymptotic analysis
+		<li>To have a measure of efficiency of algorithms 
+		<li>That doesn’t depend on machine specific constants, 
+		<li>That doesn’t require algorithms to be implemented
+		<li>Time taken by programs to be compared.</ul>
+			<ul>Asymptotic notations are mathematical tools to represent time complexity of algorithms for asymptotic analysis.
+			Asymptotic analysis refers to computing the running time of any operation in mathematical units of computation.
+				<li>Ο Notation
+				<li>Ω Notation
+				<li>θ Notation</ul>
+				</p>
+		<center><img src="asymptotic.png" style="width:1000px;height:400px;"></center>
+		<p id="s4"><u>Master’s theorem method- </u></p>
+		<p>Master Method is a direct way to get the solution. The master method works only for following type of recurrences or for
+		 recurrences that can be transformed to following type.<br>
+			T(n) = aT(n/b) + f(n) where a >= 1 and b > 1 and f(n) is an asymptotically positive function.<br>
+			<ol>There are following three cases:
+				<li>If f(n) &lt O(nlogba), then T (n) = ϴ (nlogba).
+				<LI>If f(n) = ϴ (nlogba) , then T (n) = ϴ (nlogbalogn).
+				<li>If f(n) > Ω (nlogba), and f(n) satisfies the regularity condition, then T (n) = ϴ (f(n)).</ol>
+			EXAMPLE: Solve T(n) = 3T(n/2) + n2<br>
+			<pre>T(n) = aT(n/b) + f(n) where a >= 1 and b > 1 <br>
+				a = 3		b = 2		f(n) = n2<br>
+					If f(n) &lt O(n^logba), then T (n) = ϴ (n^logba).<br>
+					If f(n) = ϴ (n^logba) , then T (n) = ϴ (n^logbalogn).<br>
+					If f(n) > Ω (n^logba), and f(n) satisfies the regularity condition, then T (n) = ϴ (f(n)).<br>
+				Step 1: Calculate n^logba = n^log23 = n^1.58
+				Step 2: Compare with f(n)
+						Since f(n) > n^logba
+						i.e. n2 > n^1.58
+				Step 3: Case 3 is satisfied hence complexity is given as 
+					T(n) = Θ(f(n)) = Θ (n2)</pre>
+					</p>
+					<p id="s2"><u>Recursion Tree</u></p>
+					<p>A recursion tree is useful for visualizing what happens when a recurrence is iterated. 
+					It diagrams the tree of recursive calls and the amount of work done at each call.<br>
+						For instance, consider the recurrence<br>
+							T(n) = 2T(n/2) + n2.<br>
+						The recursion tree for this recurrence has the following form:<br>
+						<center><img src="rt1.png" style="width:500px;height:200px;"></center>
+						In this case, it is straightforward to sum across each row of the tree to obtain the total work done at a given level:<br>
+						<center><img src="rt2.png" style="width:500px;height:200px;"></center>
+						This a geometric series, thus in the limit the sum is O(n2). <br>
+						The depth of the tree in this case does not really matter; the amount of work at each level is decreasing so quickly 
+						that the total is only a constant factor more than the root.<br>
+						Recursion trees can be useful for gaining intuition about the closed form of a recurrence, but they are not a proof 
+						(and in fact it is easy to get the wrong answer with a recursion tree, as is the case with any method that includes 
+						''...'' kinds of reasoning). As we saw last time, a good way of establishing a closed form for a recurrence is to make 
+						an educated guess and then prove by induction that your guess is indeed a solution. Recurrence trees can be a good method of guessing.
+						</p>
+						<p><h2>Some important links:</h2>
+								     Recurrence relation- <a href="https://www.youtube.com/watch?v=Zhhh9qpAVN0">https://www.youtube.com/watch?v=Zhhh9qpAVN0</a>
+								<br> Recursion tree method- <a href="https://youtu.be/lBFiDGkR9-M">https://youtu.be/lBFiDGkR9-M</a>
+								<br> Master's Theorem- <a href="https://youtu.be/_DEd9dOGDgA">https://youtu.be/_DEd9dOGDgA</a>
+								<br> Mathematical Analysis- <a href="https://youtu.be/wgj-AcKZ3sA">https://youtu.be/wgj-AcKZ3sA</a>
+								<br> Algorithm Design- <a href="https://youtu.be/6BWvV4xVh8U">https://youtu.be/6BWvV4xVh8U</a>
+						</p>
+						<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+							<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+  </article>
+</section>
+
+<footer>
+<p><a href="HOME PAGE.html">HOME PAGE</a></p>
+ <b><u><center> <p>That was all about UNIT-1: Introduction to Algorithm Design.</p></center></u></b>
+<a href="F2.html" class="next">Next &raquo;</a>
+</footer>
+
+		</BODY>
+</HTML>

@@ -1,0 +1,459 @@
+<HTML>
+	<HEAD>
+		<TITLE>Design And Analysis Of Algorithms</TITLE>
+	</HEAD>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  height: 295px;
+}
+
+nav {
+  float: left;
+  width: 39%;
+  height: 8850px; 
+  background: #ccc;
+  font-size: 40px;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {padding-left: 20px;}
+ 
+article {
+  float: left;
+  padding: 20px;
+  width: 61%;
+  background-color: #f1f1f1;
+  height: 8850px; 
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+  background-color: black;
+  padding: 30px;
+  text-align: center;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.previous {
+  background-color: white;
+  color: black;
+}
+
+.next {
+  background-color: white;
+  color: black;
+}
+
+.round {
+  border-radius: 50%;
+}
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: #604fbf;
+}
+
+/* mouse over link */
+a:hover {
+  color: #66cc00;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #0047b3;
+}
+.pagination a {
+  border: 1px solid #80aaff; 
+}
+.pagination a {
+  margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+}
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+</head>
+<body bgcolor="#e6f0ff">
+
+<header>			
+			<CENTER>	<u><h1>UNIT-5 -- Introduction to randomization and approximation algorithm  </h1></u></CENTER><br>
+</header>
+
+<section>
+  <nav>
+    <ul">List of topics in U5-
+      <li><a href="#s1">Introduction to randomization</a>
+	  <li><a href="#s2">Randomized hiring problem</a>
+      <li><a href="#s3">String matching algorithm</a>
+      <li><a href="#s4">Rabin Karp algorithm</a>
+	  <li><a href="#s5">Approximation algorithm</a>
+	  <li><a href="#s6">Vertex covering</a>
+	  <li><a href="#s7">Introduction to NP type problems</a>
+	  <li><a href="#s8">Hamiltonian cycle problem</a>
+    </ul>
+  </nav>
+  
+  <article>
+  <center>
+	 <div class="pagination">
+  <a href="F4.html">&laquo;</a>
+  <a href="HOME PAGE.html">Home</a>
+  <a href="F1.html">U1</a>
+  <a href="F2.html">U2</a>
+  <a href="F3.html">U3</a>
+  <a href="F4.html">U4</a>
+  <a href="F5.html" class="active">U5</a>
+</div></center>
+			<p id="s1"><h3>Randomisation Algorithm</h3></p>
+			<p> An algorithm that uses random numbers to decide what to do next anywhere in its logic is called Randomized Algorithm. 
+			For example, in Randomized Quick Sort, we use random number to pick the next pivot (or we randomly shuffle the array). <br>
+			Classification of Randomized algorithms:<br>
+			Las Vegas: <br>
+			These algorithms always produce correct or optimum result. 
+			Time complexity of these algorithms is based on a random value and time complexity is evaluated as expected value. 
+			For example, Randomized QuickSort always sorts an input array and expected worst case time complexity of QuickSort is O(nLogn).  <br>
+			Monte Carlo: <br>
+			Produce correct or optimum result with some probability. 
+			These algorithms have deterministic running time and it is generally easier to find out worst case time complexity. 
+			For example implementation of Karger’s Algorithm produces minimum cut with probability greater 
+			than or equal to 1/n2 (n is number of vertices) and has worst case time complexity O(E) <br><br>
+			<b>Application-</b><br>
+			Consider a tool that basically does sorting. Let the tool be used by many users and there are few users who always 
+			use tool for already sorted array. If the tool uses simple (not randomized) QuickSort, then those few users are always 
+			going to face worst case situation. On the other hand if the tool uses Randomized QuickSort, then there is no user that 
+			always gets worst case. Everybody gets expected O(n Log n) time.<br>
+Randomized algorithms have huge applications in Cryptography. <br>
+Load Balancing. <br>
+Number-Theoretic Applications: Primality Testing <br>
+Data Structures: Hashing, Sorting, Searching, Order Statistics and Computational Geometry. <br>
+Algebraic identities: Polynomial and matrix identity verification. Interactive proof systems.<br>
+Mathematical programming: Faster algorithms for linear programming, Rounding linear program solutions to integer program solutions<br>
+Graph algorithms: Minimum spanning trees, shortest paths, minimum cuts.<br>
+Counting and enumeration: Matrix permanent Counting combinatorial structures.<br>
+Parallel and distributed computing: Deadlock avoidance distributed consensus.<br>
+Probabilistic existence proofs: Show that a combinatorial object arises with non-zero probability among objects drawn from a suitable probability space.<br>
+Derandomization: First devise a randomized algorithm then argue that it can be derandomized to yield a deterministic algorithm.<br><br>
+			</p>
+			<p id="s2"><h3>Hiring Problem</h3></p>
+			<p> We will now begin our investigation of randomized algorithms with a toy problem:<br>
+• You want to hire an office assistant from an employment agency.<br>
+• You want to interview candidates and determine if they are better than the current assistant
+and if so replace the current assistant.<br>
+• You are going to eventually interview every candidate from a pool of n candidates.<br>
+• You want to always have the best person for this job, so you will replace an assistant with a
+better one as soon as you are done the interview.<br>
+• However, there is a cost to fire and then hire someone.<br>
+• You want to know the expected price of following this strategy until all n candidates have
+been interviewed.<br><br>
+<b>Hire-Assistant(n)</b><br><br>
+1) best ← 0 candidate 0 is a least-qualified dummy candidate<br>
+2) for i ← 1 to n<br>
+3) do interview candidate i in random permutation<br>
+4) if candidate i is better than candidate best<br>
+5) then best ← i<br>
+6) hire candidate i<br><br>
+<b>Total Cost and Cost of Hiring</b><br>
+• Interviewing has a low cost c<sub>i</sub>.<br>
+• Hiring has a high cost c<sub>h</sub>.<br>
+• Let n be the number of candidates to be interviewed andlet m be the number of people hired.<br>
+• The total cost then goes as O(n ∗ c<sub>i</sub>+ m ∗ c<sub>h</sub>)<br>
+• The number of candidates is fixed so the part of thealgorithm we want to focus on is the m ∗ c<sub>h</sub>term.<br>
+• This term governs the cost of hiring.<br><br>
+<b>Worst-case Analysis</b><br>
+• In the worst case, everyone we interview turns out to be better than the person we currently have.<br>
+• In this case, the hiring cost for the algorithm will be O(n*ch).<br>
+• This bad situation presumably doesn’t typically happen so it is interesting to ask what happens in the average case.<br><br>
+<b>Probabilistic analysis</b><br>
+• Probabilistic analysis is the use of probability to analyze problems.<br>
+• One important issue is what is the distribution of inputs to the problem.<br>
+• For instance , we could assume all orderings of candidates are equally likely.<br>
+• That is, we consider all functions rank: [0..n] --> [0..n] where rank[i] is supposed to be the ith candidate that we interview. 
+   So &lt rank(1), rank(2), …rank(n) &gt should be a permutation of of &lt 1,…,n &gt . <br>
+• There are n! many such permutations and we want each to be equally likely.<br>
+• If this is the case, the ranks form a uniform random permutation.<br><br>
+<b>Randomized algorithms</b><br>
+• In order to use probabilistic analysis, we need to know something about the distribution of the inputs.<br>
+• Unfortunately, often little is known about this distribution.<br>
+• We can nevertheless use probability and analysis as a tool for algorithm design by having the algorithm we run do some kind of randomization of the inputs.<br>
+• This could be done with a random number generator. <br>
+• We could assume we have primitive function Random(a,b) which returns an integer between integers a and b inclusive with equally likelihood.<br>
+• Algorithms which make use of such a generator are called randomized algorithms.<br>
+• In our hiring example we could try to use such a generator to create a random permutation of the input and then run the hiring algorithm on that.<br><br>
+<b>Analysis of the Hiring Problem</b><br>
+• Let Xi be the indicator random variable which is 1 if candidate i is hired and 0 otherwise.<br>
+• Let<br>
+• By our lemma E[Xi] = Pr{candidate i is hired}<br>
+• Candidate i will be hired if i is better than each of candidates 1 through i-1.<br>
+• As each candidate arrives in random order, any one of the first candidate i is equally likely to be the best candidate so far. So E[Xi] =1/i.<br>
+			</p>
+			<p id="s3"><h3>String Matching Algorithm</h3></p>
+			<p> String Matching Algorithm is also called "String Searching Algorithm." 
+			This is a vital class of string algorithm is declared as "this is the method to 
+			find a place where one is several strings are found within the larger string."<br>
+		Given a text array, T [1.....n], of n character and a pattern array, P [1......m], of m characters. 
+		The problems are to find an integer s, called valid shift where 0 ≤ s &lt n-m and T [s+1......s+m] = P [1......m]. 
+		In other words, to find even if P in T, i.e., where P is a substring of T. The item of P and T are character drawn from 
+		some finite alphabet such as {0, 1} or {A, B .....Z, a, b..... z}.Given a string T [1......n], the substrings are represented 
+		as T [i......j] for some 0≤i ≤ j≤n-1, the string formed by the characters in T from index i to index j, inclusive. This process 
+		that a string is a substring of itself (take i = 0 and j =m).<br>
+		The proper substring of string T [1......n] is T [1......j] for some 0 &lt i ≤ j≤n-1. That is, we must have either i>0 or j &lt m-1.<br>
+		Using these descriptions, we can say given any string T [1......n], the substrings are<br>
+		T [i.....j] = T [i] T [i +1] T [i+2]......T [j] for some 0≤i ≤ j≤n-1.  <br>
+		And proper substrings are<br>
+		T [i.....j] = T [i] T [i +1] T [i+2]......T [j] for some 0≤i ≤ j≤n-1.  <br>
+		<b>Note:</b> If i>j, then T [i.....j] is equal to the empty string or null, which has length zero.<br><br>
+		<b>Naive String Matching Algorithm</b><br><br>
+		NAIVE-STRING-MATCHER (T, P)<br>
+ 			1. n ← length [T]<br>
+ 			2. m ← length [P]<br>
+ 			3. for s ← 0 to n -m<br>
+			4. do if P [1.....m] = T [s + 1....s + m]<br>
+ 			5. then print "Pattern occurs with shift" s<br>
+			<center><img src="stm.png" width="500"></center>
+					</p>
+					<p id="s4"><h3>Rabin Carp Algorithm</h3></p>
+					<p> The Rabin-Karp string matching algorithm calculates a hash value for the pattern, as well as for each M-character 
+					subsequences of text to be compared. If the hash values are unequal, the algorithm will determine the hash value for next 
+					M-character sequence. If the hash values are equal, the algorithm will analyze the pattern and the M-character sequence. 
+					In this way, there is only one comparison per text subsequence, and character matching is only required when the hash values match.<br>
+					<br><b>Algorithm</b><br><br>
+					RABIN-KARP-MATCHER (T, P, d, q)<br>
+ 1. n ← length [T]<br>
+ 2. m  ← length [P]<br>
+ 3. h  ←  dm-1 mod q<br>
+ 4. p ←  0<br>
+ 5. t0 ←  0<br>
+ 6. for i ← 1 to m<br>
+ 7. do p ←  (dp + P[i]) mod q<br>
+ 8. t0 ← (dt0+T [i]) mod q<br>
+ 9. for s  ←  0 to n-m<br>
+ 10. do if p = ts<br>
+ 11. then if P [1.....m] = T [s+1.....s + m]<br>
+ 12. then "Pattern occurs with shift" s<br>
+ 13. If s &lt n-m<br>
+ 14. then ts+1 ←  (d (ts-T [s+1]h)+T [s+m+1])mod q<br><br>
+ <center><img src="rabincarp.png" width="100%"><img src="rabin.png"></center>
+<br><br><b>Complexity:</b><br>
+The running time of RABIN-KARP-MATCHER in the worst case scenario O ((n-m+1) m but it has a good average case running time. 
+If the expected number of strong shifts is small O (1) and prime q is chosen to be quite large, then the Rabin-Karp algorithm 
+can be expected to run in time O (n+m) plus the time to require to process spurious hits.
+					</p>
+					<p id="s5"><h3>Approximation Algorithm</h3></p>
+					<p> <b>Introduction:</b><br>
+An Approximate Algorithm is a way of approach NP-COMPLETENESS for the optimization problem. 
+This technique does not guarantee the best solution. The goal of an approximation algorithm is to come 
+as close as possible to the optimum value in a reasonable amount of time which is at the most polynomial 
+time. Such algorithms are called approximation algorithm or heuristic algorithm.<br>
+For the traveling salesperson problem, the optimization problem is to find the shortest cycle, and the approximation problem is to find a short cycle.<br>
+For the vertex cover problem, the optimization problem is to find the vertex cover with fewest vertices, and the approximation problem is to find 
+the vertex cover with few vertices.<br>
+<b>Performance Ratios</b><br>
+Suppose we work on an optimization problem where every solution carries a cost. 
+An Approximate Algorithm returns a legal solution, but the cost of that legal solution may not be optimal.<br>
+
+      For Example, suppose we are considering for a minimum size vertex-cover (VC). An approximate algorithm returns a VC for us, but the size (cost) may not be minimized.<br>
+ Another Example is we are considering for a maximum size Independent set (IS). An approximate Algorithm returns an IS for us, 
+ but the size (cost) may not be maximum. Let C be the cost of the solution returned by an approximate algorithm, and C* is the cost of the optimal solution.<br>
+We say the approximate algorithm has an approximate ratio P (n) for an input size n, where<br>
+<center><img src="appro.png"></center><br>
+Intuitively, the approximation ratio measures how bad the approximate solution is distinguished with the optimal solution. 
+A large (small) approximation ratio measures the solution is much worse than (more or less the same as) an optimal solution<br>
+      Observe that P (n) is always ≥ 1, if the ratio does not depend on n, we may write P. 
+	  Therefore, a 1-approximation algorithm gives an optimal solution. Some problems have polynomial-time 
+	  approximation algorithm with small constant approximate ratios, while others have best-known polynomial 
+	  time approximation algorithms whose approximate ratios grow with n.<br>
+					</p>
+					<p id="s6"><h3>Vertex Cover</h3></p>
+					<p> A Vertex Cover of a graph G is a set of vertices such that each edge in G is incident to at least one of these vertices.<br>
+The decision vertex-cover problem was proven NPC. Now, we want to solve the optimal version of the vertex cover problem, i.e., 
+we want to find a minimum size vertex cover of a given graph. We call such vertex cover an optimal vertex cover C*.<br>
+<center><img src="vc1.png"></center><br>
+An approximate algorithm for vertex cover:<br>
+<center><img src="vc3.png"></center>
+The idea is to take an edge (u, v) one by one, put both vertices to C, and remove all the edges incident to u or v. 
+We carry on until all edges have been removed. C is a VC. But how good is C?<br>
+<center><img src="vc2.png"></center><br>
+VC = {b, c, d, e, f, g}
+					</p>
+					<p id="s7"><h3>P & NP Class</h3></p>
+					<p> <b>P Class</b><br>
+					The class P consists of those problems that are solvable in polynomial time, i.e. these problems 
+					can be solved in time O(n<sup>k</sup>) in worst-case, where k is constant.<br>
+These problems are called tractable, while others are called intractable or superpolynomial.<br>
+Formally, an algorithm is polynomial time algorithm, if there exists a polynomial p(n) such that the algorithm can solve any instance of size n in a time O(p(n)).<br>
+Problem requiring Ω(n<sup>50</sup>) time to solve are essentially intractable for large n. Most known polynomial time algorithm run in time O(n<sup>k</sup>) for fairly low value of k.<br>
+The advantages in considering the class of polynomial-time algorithms is that all reasonable deterministic single processor model 
+of computation can be simulated on each other with at most a polynomial slow-d<br>
+				<br><b>NP Class</b><br>
+				The class NP consists of those problems that are verifiable in polynomial time. 
+				NP is the class of decision problems for which it is easy to check the correctness of a claimed answer, 
+				with the aid of a little extra information. Hence, we aren’t asking for a way to find a solution, but only
+				 to verify that an alleged solution really is correct.<br>
+				Every problem in this class can be solved in exponential time using exhaustive search.<br>
+				<br><b>P vs NP</b><br>
+				Every decision problem that is solvable by a deterministic polynomial time algorithm is also solvable by a polynomial time non-deterministic algorithm.<br>
+All problems in P can be solved with polynomial time algorithms, whereas all problems in NP - P are intractable.<br>
+It is not known whether P = NP. However, many problems are known in NP with the property that if they belong to P, then it can be proved that P = NP.<br>
+If P ≠ NP, there are problems in NP that are neither in P nor in NP-Complete.<br>
+The problem belongs to class P if it’s easy to find a solution for the problem. The problem belongs to NP, 
+if it’s easy to check a solution that may have been very tedious to find.<br>
+<center><img src="np.jpg"></center><br>
+			<br><b>NP Completeness</b><br>
+			A language B is NP-complete if it satisfies two conditions<br>
+B is in NP<br>
+Every A in NP is polynomial time reducible to B.<br>
+If a language satisfies the second property, but not necessarily the first one, the language B is known as NP-Hard. 
+Informally, a search problem B is NP-Hard if there exists some NP-Complete problem A that Turing reduces to B.<br>
+The problem in NP-Hard cannot be solved in polynomial time, until P = NP. If a problem is proved to be NPC, there 
+is no need to waste time on trying to find an efficient algorithm for it. Instead, we can focus on design approximation algorithm.<br>
+NP-Complete Problems:<br>
+Following are some NP-Complete problems, for which no polynomial time algorithm is known-<br>
+Determining whether a graph has a Hamiltonian cycle<br>
+Determining whether a Boolean formula is satisfiable, etc.<br>
+NP-Hard Problems:<br>
+The following problems are NP-Hard-<br>
+The circuit-satisfiability problem<br>
+Set Cover<br>
+Vertex Cover<br>
+Travelling Salesman Problem<br>
+<br><b>To prove TSP is NP-Complete</b><br>
+First we have to prove that TSP belongs to NP. In TSP, we find a tour and check that the tour contains each vertex once. 
+Then the total cost of the edges of the tour is calculated. Finally, we check if the cost is minimum. This can be completed in polynomial time. Thus TSP belongs to NP.<br>
+Secondly, we have to prove that TSP is NP-hard. To prove this, one way is to show that Hamiltonian cycle ≤p TSP (as we know that the Hamiltonian cycle problem is NPcomplete).<br>
+Assume G = (V, E) to be an instance of Hamiltonian cycle.<br>
+Hence, an instance of TSP is constructed. We create the complete graph G' = (V, E'), where<br>
+<center><img src="tnp1.png"></center><br>
+Thus, the cost function is defined as follows −<br>
+<center><img src="tnp2.png"></center><br>
+Now, suppose that a Hamiltonian cycle h exists in G. It is clear that the cost of each edge in h is 0 in G' as each edge belongs to E. 
+Therefore, h has a cost of 0 in G'. Thus, if graph G has a Hamiltonian cycle, then graph G' has a tour of 0 cost.<br>
+Conversely, we assume that G' has a tour h' of cost at most 0. The cost of edges in E' are 0 and 1 by definition. 
+Hence, each edge must have a cost of 0 as the cost of h' is 0. We therefore conclude that h' contains only edges in E.<br>
+We have thus proven that G has a Hamiltonian cycle, if and only if G' has a tour of cost at most 0. TSP is NP-complete.<br>
+					</p>
+					<p id="s8"><h3>Hamiltonian Cycle Problem</h3></p>
+					<p> It is a closed walk such that each vertex is visited at most once except the initial vertex. and it is not necessary to visit all the edges.<br><br>
+					<b>Formula:</b>
+					<center><img src="hmlt.png"></center><br>
+				<b>	Examples:</b><br>
+Input : N = 6<br>
+Output : Hamiltonian cycles = 60<br>
+Input : N = 4<br>
+Output : Hamiltonian cycles = 3<br>
+Explanation:<br>
+Let us take the example of N = 4 complete undirected graph, The 3 different hamiltonian cycle is as shown below:<br><br>
+<center><img src="hmlt2.png"></center>
+					</p>
+					<p><h2>Some important links:</h2>
+String Matching Algorithm/ Rabin Carp Problem - <a href="https://youtu.be/qQ8vS2btsxI">https://youtu.be/qQ8vS2btsxI</a><br>
+Vertex Cover- <a href="https://youtu.be/_8wrCTLwC7E">https://youtu.be/_8wrCTLwC7E</a><br>
+Hamiltonian Cycles- <a href="https://youtu.be/uOV9Hz1_oE8">https://youtu.be/uOV9Hz1_oE8</a><br>
+NP-Problems- <a href="https://youtu.be/e2cF8a5aAhE">https://youtu.be/e2cF8a5aAhE</a><br>
+Approximation Algorithm- <a href="https://youtu.be/jFW7fwa0Zm8">https://youtu.be/jFW7fwa0Zm8</a><br>
+</p>
+				<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+							<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+  </article>
+</section>
+
+<footer>
+  <p><a href="HOME PAGE.html">HOME PAGE</a></p>
+  <b><u><center> <p>That was all about UNIT-5: Introduction to randomization and approximation algorithm.</p></center></u></b>
+  <a href="F4.html" class="previous">&laquo; Previous</a>
+</footer>
+
+</body>
+</html>
