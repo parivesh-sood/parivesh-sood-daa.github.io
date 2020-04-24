@@ -5,7 +5,7 @@ subject done by
 	CSE-CN-L2.
 _____________________________________________________________________________
 
-The homepage of the website is stored in the home file.
+The homepage of the website is stored in the index file.
 The content for U-1 is stored in F1 and  the U-2 is stored
 on F2 and so on.
 -----------------------------------------------------------------------------------------
